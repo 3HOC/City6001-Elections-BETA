@@ -1,0 +1,121 @@
+/* 
+solid D: #1c408c
+likely D: #577ccc
+lean D: #8aafff
+tilt D: #949bb3
+
+solid C: #bf1d29
+likely C: #ff5865
+lean C: #ff8b98
+tilt C: #cf8980
+*/
+
+body {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    background-color: black;
+    color: white;
+
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+button {
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: rgb(100, 100, 100);
+    color: white;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    margin: 4px;
+}
+
+g {
+    fill: rgb(160, 160, 160);
+    stroke: black;
+    stroke-width: 1px;
+}
+
+#header {
+    background-color: rgb(64, 64, 64);
+    width: 100%;
+    text-align: center;
+}
+
+
+
+.centerbutton {
+    width: 120px;
+}
+
+#resetbutton {
+    background-color: rgb(255, 79, 79);
+}
+
+#mapcontainer {
+    margin: 4px;
+    overflow: hidden;
+    border: 1px solid gray;
+    width: 800px;
+
+    display: grid;
+    place-items: center;
+}
+
+#parties {
+    padding: 100px;
+    text-align: center;
+}
+
+
+
+#conservative {
+    background-color: #bf1d29;
+}
+
+#democrat {
+    background-color: #1c408c;
+}
+
+#tossup {
+    background-color: gray;
+}
+
+.partySelect {
+    width: 300px;
+    height: 80px;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+button:hover {
+    filter:brightness(80%);
+}
+
+
+
+.state {
+    cursor: pointer;
+    transition: fill 0.2s;
+}
+
+.state:hover {
+    filter:brightness(80%);
+}
+
+#labels text {
+    font-family: "Roboto", serif;
+    font-size: 11px;
+    font-weight: 100;
+    fill: white;
+    stroke: white;
+    text-anchor: middle;
+    pointer-events: none;
+    text-anchor: middle;
+    user-select:none;
+}
