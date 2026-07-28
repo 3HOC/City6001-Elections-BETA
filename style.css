@@ -33,6 +33,7 @@ button {
     border-radius: 10px;
     border: none;
     margin: 4px;
+    user-select: none;
 }
 
 g {
@@ -82,7 +83,7 @@ g {
     background-color: #1c408c;
 }
 
-#tossup {
+#tossupSelect {
     background-color: gray;
 }
 
@@ -118,4 +119,82 @@ button:hover {
     pointer-events: none;
     text-anchor: middle;
     user-select:none;
+}
+
+
+#evContainer {
+    position: relative;
+    overflow: visible;
+}
+
+#evBar {
+    display: flex;
+    justify-content: center;
+    width:1000px;
+    height:50px;
+    overflow:hidden;
+    border-radius:15px;
+    border: 2px solid white;
+    margin: 40px;
+}
+
+.evSection{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:0.5s;
+}
+
+#winText {
+    position: absolute;
+    left: 50%;
+    bottom: 86%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#winMarker {
+    position: absolute;
+    left: 50%;
+    bottom: 70%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#solidC {
+    background-color: #bf1d29;
+}
+
+#likelyC {
+    background-color: #ff5865;
+}
+
+#leanC {
+    background-color: #ff8b98;
+}
+
+#tiltC {
+    background-color: #cf8980;
+}
+
+#tossup {
+    background-color: rgb(160, 160, 160);
+}
+
+#tiltD {
+    background-color: #949bb3;
+}
+
+#leanD {
+    background-color: #8aafff;
+}
+
+#likelyD {
+    background-color: #577ccc;
+}
+
+#solidD {
+    background-color: #1c408c;
 }

@@ -17,6 +17,21 @@ let targetZoom = 1;
 
 let evC = 0;
 let evD = 0;
+
+const evTotals = {
+    solidC:0,
+    likelyC:0,
+    leanC:0,
+    tiltC:0,
+
+    solidD:0,
+    likelyD:0,
+    leanD:0,
+    tiltD:0,
+
+    tossup:538
+};
+
 let evTossup = 538;
 
 map.addEventListener("wheel",(event)=>{
@@ -64,14 +79,14 @@ map.addEventListener("wheel",(event)=>{
     targetY = mapMouseY - (mouseY / rect.height) * targetHeight;
 });
 
-map.addEventListener("mousedown",(event)=>{
+map.addEventListener("pointerdown",(event)=>{
     panning = true;
 
     oldX = event.clientX;
     oldY = event.clientY;
 });
 
-map.addEventListener("mousemove",(event)=>{
+map.addEventListener("pointermove",(event)=>{
     if(!panning){
         return;
     }
@@ -84,11 +99,11 @@ map.addEventListener("mousemove",(event)=>{
     targetY -= changeY;
 });
 
-map.addEventListener("mouseup",(event)=>{
+map.addEventListener("pointerup",(event)=>{
     panning = false;
 });
 
-document.addEventListener("mouseup", ()=>{
+document.addEventListener("pointerup", ()=>{
     panning = false;
 });
 
@@ -251,6 +266,12 @@ function resetMap(){
 function calculateVotes(){
     evC = 0;
     evD = 0;
+    const parties = ["solid-C","likely-C","lean-C","tilt-C","tilt-D","lean-D","likely-D","solid-D","tossup"];
+    const partyKeys = ["solidC","likelyC","leanC","tiltC","tiltD","leanD","likelyD","solidD","tossup"];
+
+    for(let i = 0; i < parties.length; i++){
+        evTotals[partyKeys[i]] = 0;
+    }
 
     for(let state in statesData){
         let party = statesData[state].party;
@@ -262,10 +283,42 @@ function calculateVotes(){
             evD += votes;
         }
 
+        for(let i = 0; i < parties.length; i++){
+            if(party == parties[i]){
+                evTotals[partyKeys[i]] += votes;
+            }
+        }
+
+        if(party == "none"){
+            evTotals.tossup += votes;
+        }
+
         evTossup = 538 - evC - evD;
 
         document.querySelector("#conservative").innerHTML = "Conservative - " + evC;
         document.querySelector("#democrat").innerHTML = "Democrat - " + evD;
-        document.querySelector("#tossup").innerHTML = "Tossup - " + evTossup;
+        document.querySelector("#tossupSelect").innerHTML = "Tossup - " + evTossup;
+
+        for(let key in partyKeys){
+            let section = document.querySelector("#" + partyKeys[key]);            
+            let votes = evTotals[partyKeys[key]];
+            let width = (votes / 538) * 100;
+
+            if(votes == 0){
+                section.textContent = "";
+            } else {
+                section.textContent = evTotals[partyKeys[key]];
+            }
+
+            section.style.width = width + "%";
+        }
+
+        if(evC >= 270){
+            document.querySelector("#winMarker").style.color = "#bf1d29";
+        } else if (evD >= 270){
+            document.querySelector("#winmarker").style.color = "#1c408c";
+        }
     }
 }
+
+calculateVotes();

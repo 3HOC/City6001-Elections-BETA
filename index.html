@@ -172,10 +172,27 @@
                 <td id="parties">
                     <button class="partySelect" id="conservative" onclick="toParty('conservative');">Conservative - 0</button> <br>
                     <button class="partySelect" id="democrat" onclick="toParty('democrat');">Democrat - 0</button> <br>
-                    <button class="partySelect" id="tossup" onclick="toParty('tossup');">Tossup - 538</button>
+                    <button class="partySelect" id="tossupSelect" onclick="toParty('tossupSelect');">Tossup - 538</button>
                 </td>
             </tr>
         </table>
+
+        <div id="evContainer">
+            <div id="evBar">
+                <div id="winText">270 to win!</div>
+                <div id="winMarker">🡫</div>
+
+                <div id="solidC" class="evSection">0</div>
+                <div id="likelyC" class="evSection">0</div>
+                <div id="leanC" class="evSection">0</div>
+                <div id="tiltC" class="evSection">0</div>
+                <div id="tossup" class="evSection">538</div>
+                <div id="tiltD" class="evSection">0</div>
+                <div id="leanD" class="evSection">0</div>
+                <div id="likelyD" class="evSection">0</div>
+                <div id="solidD" class="evSection">0</div>
+            </div>
+        </div>
 
         
         <script>

@@ -46,6 +46,12 @@
                 display: flex;
                 justify-content: center;
                 border: 1px solid gray;
+                width: 800px;
+            }
+
+            #map {
+                width: 100%;
+                height: 100%;
             }
         </style>
     </head>
@@ -190,19 +196,19 @@
 
         <script>
             const statesData = {
-                estethalAL:{party:"none", ev:13, formatted:"Estethal"},
-                berin:{party:"none", ev:16, formatted:"Berin"},
-                sanceros:{party:"none", ev:13, formatted:"Sanceros"},
-                laffayette:{party:"none", ev:12, formatted:"Laffayette"},
-                lakeview:{party:"none", ev:12, formatted:"Lakeview"},
-                spica:{party:"none", ev:85, formatted:"Spica"},
-                defimeter:{party:"none", ev:14, formatted:"Defimeter"},
-                stanton:{party:"none", ev:32, formatted:"Stanton"},
-                castor:{party:"none", ev:15, formatted:"Castor"},
-                caprainegroup:{party:"none", ev:122, formatted:"Capraine"},
-                hampton:{party:"none", ev:29, formatted:"Hampton"},
-                amstappen:{party:"none", ev:21, formatted:"Tenida (Marte & Amstappen)"},
-                numelsAL:{party:"none", ev:14, formatted:"Numels"}
+                estethalAL:{party:"lean-C", ev:13, formatted:"Estethal"},
+                berin:{party:"lean-C", ev:16, formatted:"Berin"},
+                sanceros:{party:"solid-C", ev:13, formatted:"Sanceros"},
+                laffayette:{party:"solid-C", ev:12, formatted:"Laffayette"},
+                lakeview:{party:"solid-C", ev:12, formatted:"Lakeview"},
+                spica:{party:"tilt-D", ev:85, formatted:"Spica"},
+                defimeter:{party:"likely-C", ev:14, formatted:"Defimeter"},
+                stanton:{party:"lean-C", ev:32, formatted:"Stanton"},
+                castor:{party:"likely-C", ev:15, formatted:"Castor"},
+                caprainegroup:{party:"solid-D", ev:122, formatted:"Capraine"},
+                hampton:{party:"likely-D", ev:29, formatted:"Hampton"},
+                amstappen:{party:"solid-C", ev:21, formatted:"Tenida (Marte & Amstappen)"},
+                numelsAL:{party:"solid-C", ev:14, formatted:"Numels"}
             };
 
             const stateLabels = {
