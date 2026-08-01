@@ -50,12 +50,18 @@ g {
 
 
 
-.centerbutton {
+.smallbutton {
     width: 120px;
 }
 
+
+
 #resetbutton {
     background-color: rgb(255, 79, 79);
+}
+
+#recenterbutton {
+    margin-right: 100px;
 }
 
 #mapcontainer {
@@ -63,6 +69,7 @@ g {
     overflow: hidden;
     border: 1px solid gray;
     width: 800px;
+    background:none;
 
     display: grid;
     place-items: center;

@@ -80,6 +80,7 @@ map.addEventListener("wheel",(event)=>{
 });
 
 map.addEventListener("pointerdown",(event)=>{
+    event.stopPropagation()
     panning = true;
 
     oldX = event.clientX;
@@ -87,6 +88,8 @@ map.addEventListener("pointerdown",(event)=>{
 });
 
 map.addEventListener("pointermove",(event)=>{
+    event.stopPropagation()
+    
     if(!panning){
         return;
     }
@@ -100,10 +103,14 @@ map.addEventListener("pointermove",(event)=>{
 });
 
 map.addEventListener("pointerup",(event)=>{
+    event.stopPropagation()
+    
     panning = false;
 });
 
 document.addEventListener("pointerup", ()=>{
+    event.stopPropagation()
+    
     panning = false;
 });
 
@@ -316,9 +323,26 @@ function calculateVotes(){
         if(evC >= 270){
             document.querySelector("#winMarker").style.color = "#bf1d29";
         } else if (evD >= 270){
-            document.querySelector("#winmarker").style.color = "#1c408c";
+            document.querySelector("#winMarker").style.color = "#1c408c";
+        } else {
+            document.querySelector("#winMarker").style.color = "rgb(160, 160, 160)";
         }
     }
 }
+
+function takeScreenshot(){
+    html2canvas(
+        document.querySelector("#mapcontainer")
+    ).then((canvas) => {
+        let link = document.createElement("a");
+
+        link.download = "map.png";
+        link.href = canvas.toDataURL();
+
+        link.click();
+    });
+}
+
+
 
 calculateVotes();

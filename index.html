@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <link rel="stylesheet" href="style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
         <script src="script.js" defer></script>
 
         <title>City6001 Election Maps</title>
@@ -27,13 +28,16 @@
                 <td>
                     <h1>City6001 Presidential Election Map (by county)</h1>
                     <p>Welcome to the official City6001 elections website! The next election is scheduled for 2030 (late 2026 real world)</p>
+                    <p>Note: The button that takes screenshot of the map does not preserve the font.</p>
                 </td>
             </tr>
             <tr>
                 <td>
                     <button onclick="window.location.href='historical.html';">View Historical Elections</button>
-                    <button class="centerbutton" onclick="recenter();">Re-Center Map</button>
-                    <button class="centerbutton" id="resetbutton" onclick="resetMap();">Reset Map</button>
+                    <button class="smallbutton" id="recenterbutton" onclick="recenter();">Re-Center Map</button>
+                    <button class="smallbutton" id="resetbutton" onclick="resetMap();">Reset Map</button>
+                    <button class="rightbutton" id="screenshot" onclick="takeScreenshotMap();">Take Screenshot of Map</button>
+                    <button class="rightbutton" id="screenshot" onclick="takeScreenshotBar();">Take Screenshot of EV Bar</button>
                 </td>
             </tr>
         </table>
